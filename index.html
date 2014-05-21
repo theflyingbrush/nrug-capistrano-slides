@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>reveal.js - The HTML Presentation Framework</title>
+		<title>Capistrano NRUG</title>
 
 		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
 		<meta name="author" content="Hakim El Hattab">
@@ -53,9 +53,14 @@
 				<section>
 					<h2>What is Capistrano?</h2>
 					<p>http://capistranorb.com/</p>
-					<p>
-						Capistrano extends the Rake DSL with methods specific to running commands <code>on()</code> servers.
-					</p>
+					<ul>
+						<li class='fragment'>
+							A remote server automation and deployment tool written in Ruby.
+						</li>
+						<li class='fragment'>
+							Capistrano extends the Rake DSL with methods specific to running commands <code>on()</code> servers.
+						</li>
+					</ul>
 
 					<!--<aside class="notes">
 						Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
@@ -65,7 +70,7 @@
 				<!-- Example of nested vertical slides -->
 				
 				<section>
-					<h2>WHY WOULD I WANT TO DO THAT?</h2>
+					<h2>WHAT'S IT GOOD FOR?</h2>
 					<p>
 						You can write tasks in ruby and run them on a remote server.
 					</p>
@@ -75,14 +80,14 @@
 						<li class='fragment'>Stop and start processes (e.g. the web server)</li>
 						<li class='fragment'>Monitor processes (e.g. background jobs)</li>
 						<li class='fragment'>Upload files</li>
-						<li class='fragment'>Anything (*if you have permission)</li>
+						<li class='fragment'>TL;DR - Anything (*if you have permission)</li>
 					</ul>
 				</section>
 
 				<section>
 					<h2>Not just for Rubyists</h2>
 					<p>Earlier versions geared for Ruby/Rails apps</p>
-					<p class='fragment'>Capistrano 3 has moved Ruby-specific stuff into gems</p>
+					<p class='fragment'>Capistrano 3 has moved Ruby-specific stuff into specialist gems</p>
 					<p class='fragment'>
 						Tasks are written in Ruby, but you don't have to deploy Ruby code.
 					</p>
@@ -97,255 +102,220 @@
 
 				<section>
 					<h2>Installation</h2>
-					<p>Add to Gemfile</p>
-					<pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
-gem "capistrano"
+					<p>With Bundler</p>
+					<pre><code class='ruby' data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+ # in your Gemfile
+ group :development do
+   gem "capistrano"
+ end
 					</code></pre>
-					<p>and then...</p>
-					<pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
-bundle install
-cap install
+					<p>And then in the project root..</p>
+					<pre><code class='sh' data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+ bundle install
 					</code></pre>
+					
 				</section>
 
 				<section>
-					<h2>WHAT'S IT MADE OF?</h2>
+					<h2>What's in the box?</h2>
 					<ul>
+						<li class='fragment'><code>cap</code> executable</li>
 						<li class='fragment'>rake</li>
-						<li class='fragment'>highline</li>
-						<li class='fragment'>il8n</li>
 						<li class='fragment'>SSHKit</li>
 					</ul>
 				</section>
 
 				<section>
-					<h2>DEMONSTRATION</h2>
-					<p></p>
-				</section>
-
-				<section>
-					<h2>Fantastic Ordered List</h2>
-					<ol>
-						<li>One is smaller than...</li>
-						<li>Two is smaller than...</li>
-						<li>Three!</li>
-					</ol>
-				</section>
-
-				<section data-markdown>
-					<script type="text/template">
-						## Markdown support
-
-						For those of you who like that sort of thing. Instructions and a bit more info available [here](https://github.com/hakimel/reveal.js#markdown).
-
-						```
-						<section data-markdown>
-						  ## Markdown support
-
-						  For those of you who like that sort of thing.
-						  Instructions and a bit more info available [here](https://github.com/hakimel/reveal.js#markdown).
-						</section>
-						```
-					</script>
-				</section>
-
-				<section id="transitions">
-					<h2>Transition Styles</h2>
-					<p>
-						You can select from different transitions, like: <br>
-						<a href="?transition=cube#/transitions">Cube</a> -
-						<a href="?transition=page#/transitions">Page</a> -
-						<a href="?transition=concave#/transitions">Concave</a> -
-						<a href="?transition=zoom#/transitions">Zoom</a> -
-						<a href="?transition=linear#/transitions">Linear</a> -
-						<a href="?transition=fade#/transitions">Fade</a> -
-						<a href="?transition=none#/transitions">None</a> -
-						<a href="?#/transitions">Default</a>
-					</p>
-				</section>
-
-				<section id="themes">
-					<h2>Themes</h2>
-					<p>
-						Reveal.js comes with a few themes built in: <br>
-						<a href="?#/themes">Default</a> -
-						<a href="?theme=sky#/themes">Sky</a> -
-						<a href="?theme=beige#/themes">Beige</a> -
-						<a href="?theme=simple#/themes">Simple</a> -
-						<a href="?theme=serif#/themes">Serif</a> -
-						<a href="?theme=night#/themes">Night</a> <br>
-						<a href="?theme=moon#/themes">Moon</a> -
-						<a href="?theme=solarized#/themes">Solarized</a>
-					</p>
-					<p>
-						<small>
-							* Theme demos are loaded after the presentation which leads to flicker. In production you should load your theme in the <code>&lt;head&gt;</code> using a <code>&lt;link&gt;</code>.
-						</small>
-					</p>
-				</section>
-
-				<section>
-					<h2>Global State</h2>
-					<p>
-						Set <code>data-state="something"</code> on a slide and <code>"something"</code>
-						will be added as a class to the document element when the slide is open. This lets you
-						apply broader style changes, like switching the background.
-					</p>
-				</section>
-
-				<section data-state="customevent">
-					<h2>Custom Events</h2>
-					<p>
-						Additionally custom events can be triggered on a per slide basis by binding to the <code>data-state</code> name.
-					</p>
+					<h2>Initialisation</h2>
 					<pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
-Reveal.addEventListener( 'customevent', function() {
-	console.log( '"customevent" has fired' );
-} );
+ bundle exec cap install
 					</code></pre>
+					<p>The <code>Capfile</code> - sets up Capistrano.</p>
+					<p><code>lib/</code> - where to put your custom tasks.</p>
+					<p><code>deploy/</code> - contains stage configurations, and the main deploy task <code>deploy.rb</code>.</p>
 				</section>
 
 				<section>
-					<section data-background="#007777">
-						<h2>Slide Backgrounds</h2>
-						<p>
-							Set <code>data-background="#007777"</code> on a slide to change the full page background to the given color. All CSS color formats are supported.
-						</p>
-						<a href="#" class="image navigate-down">
-							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-						</a>
-					</section>
-					<section data-background="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png">
-						<h2>Image Backgrounds</h2>
-						<pre><code>&lt;section data-background="image.png"&gt;</code></pre>
-					</section>
-					<section data-background="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" data-background-repeat="repeat" data-background-size="100px">
-						<h2>Repeated Image Backgrounds</h2>
-						<pre><code style="word-wrap: break-word;">&lt;section data-background="image.png" data-background-repeat="repeat" data-background-size="100px"&gt;</code></pre>
-					</section>
-				</section>
-
-				<section data-transition="linear" data-background="#4d7e65" data-background-transition="slide">
-					<h2>Background Transitions</h2>
-					<p>
-						Pass reveal.js the <code>backgroundTransition: 'slide'</code> config argument to make backgrounds slide rather than fade.
-					</p>
-				</section>
-
-				<section data-transition="linear" data-background="#8c4738" data-background-transition="slide">
-					<h2>Background Transition Override</h2>
-					<p>
-						You can override background transitions per slide by using <code>data-background-transition="slide"</code>.
-					</p>
-				</section>
-
-				<section>
-					<h2>Clever Quotes</h2>
-					<p>
-						These guys come in two forms, inline: <q cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
-						&ldquo;The nice thing about standards is that there are so many to choose from&rdquo;</q> and block:
-					</p>
-					<blockquote cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
-						&ldquo;For years there has been a theory that millions of monkeys typing at random on millions of typewriters would
-						reproduce the entire works of Shakespeare. The Internet has proven this theory to be untrue.&rdquo;
-					</blockquote>
-				</section>
-
-				<section>
-					<h2>Pretty Code</h2>
-					<pre><code data-trim contenteditable>
-function linkify( selector ) {
-  if( supports3DTransforms ) {
-
-    var nodes = document.querySelectorAll( selector );
-
-    for( var i = 0, len = nodes.length; i &lt; len; i++ ) {
-      var node = nodes[i];
-
-      if( !node.className ) {
-        node.className += ' roll';
-      }
-    }
-  }
-}
-					</code></pre>
-					<p>Courtesy of <a href="http://softwaremaniacs.org/soft/highlight/en/description/">highlight.js</a>.</p>
-				</section>
-
-				<section>
-					<h2>Intergalactic Interconnections</h2>
-					<p>
-						You can link between slides internally,
-						<a href="#/2/3">like this</a>.
-					</p>
-				</section>
-
-				<section>
-					<section id="fragments">
-						<h2>Fragmented Views</h2>
-						<p>Hit the next arrow...</p>
-						<p class="fragment">... to step through ...</p>
-						<ol>
-							<li class="fragment"><code>any type</code></li>
-							<li class="fragment"><em>of view</em></li>
-							<li class="fragment"><strong>fragments</strong></li>
-						</ol>
-
-						<aside class="notes">
-							This slide has fragments which are also stepped through in the notes window.
-						</aside>
-					</section>
-					<section>
-						<h2>Fragment Styles</h2>
-						<p>There's a few styles of fragments, like:</p>
-						<p class="fragment grow">grow</p>
-						<p class="fragment shrink">shrink</p>
-						<p class="fragment roll-in">roll-in</p>
-						<p class="fragment fade-out">fade-out</p>
-						<p class="fragment highlight-red">highlight-red</p>
-						<p class="fragment highlight-green">highlight-green</p>
-						<p class="fragment highlight-blue">highlight-blue</p>
-						<p class="fragment current-visible">current-visible</p>
-						<p class="fragment highlight-current-blue">highlight-current-blue</p>
-					</section>
-				</section>
-
-				<section>
-					<h2>Spectacular image!</h2>
-					<a class="image" href="http://lab.hakim.se/meny/" target="_blank">
-						<img width="320" height="299" src="http://s3.amazonaws.com/hakim-static/portfolio/images/meny.png" alt="Meny">
-					</a>
-				</section>
-
-				<section>
-					<h2>Export to PDF</h2>
-					<p>Presentations can be <a href="https://github.com/hakimel/reveal.js#pdf-export">exported to PDF</a>, below is an example that's been uploaded to SlideShare.</p>
-					<iframe id="slideshare" src="http://www.slideshare.net/slideshow/embed_code/13872948" width="455" height="356" style="margin:0;overflow:hidden;border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen> </iframe>
-					<script>
-						document.getElementById('slideshare').attributeName = 'allowfullscreen';
-					</script>
-				</section>
-
-				<section>
-					<h2>Take a Moment</h2>
-					<p>
-						Press b or period on your keyboard to enter the 'paused' mode. This mode is helpful when you want to take distracting slides off the screen
-						during a presentation.
-					</p>
-				</section>
-
-				<section>
-					<h2>Stellar Links</h2>
+					<h2>DEMONSTRATION</h2>
+					<p>The basics:</p>
 					<ul>
-						<li><a href="http://slid.es">Try the online editor</a></li>
-						<li><a href="https://github.com/hakimel/reveal.js">Source code on GitHub</a></li>
-						<li><a href="http://twitter.com/hakimel">Follow me on Twitter</a></li>
+						<li class='fragment'><code>cap install</code></li>
+						<li class='fragment'>Specify your connection details</li>
+						<li class='fragment'>Configure your credentials (SSH)</li>
+						<li class='fragment'><code>cap {stage} deploy</code></li>
 					</ul>
 				</section>
 
 				<section>
-					<h1>THE END</h1>
-					<h3>BY Hakim El Hattab / hakim.se</h3>
+					<h2>Structure on the server</h2>
+					<p><code>releases/</code> - contains all deployments.</p>
+					<p><code>shared/</code> - resources shared between deployments e.g. uploads, config etc.</p>
+					<p><code>current</code> - a symlink to the most recent deployment in <code>releases</code>.</p>
+					<p>Your server should have document root on, or in <code>current</code>.</p>
+					<p><code>repo</code> - cached source code</p>
+				</section>
+
+				<section>
+					<h2>Rollbacks</h2>
+					<p><code>cap {stage} deploy:rollback</code></p>
+					<p>Repoints the symlink to the previous deployment.</p>
+				</section>
+
+				<section>
+					<h2>The <code style='text-transform:lowercase'>deploy</code> task</h2>
+					<p><code>deploy</code> is the default task.</p>
+					<p>It's composed of lots of smaller tasks:</p>
+					<p><code>cap staging deploy --prereqs</code></p>
+					<p>List all tasks (including your own) with:</p>
+					<p><code>cap -T</code></p>
+				</section>
+
+				<section>
+					<h2>Configuring Tasks with Settings</h2>
+					<p>You assign settings with <code>set</code></p>
+					<p><code>set :variable_name, "my cool variable"</code></p>
+					<p>And fetch them with <code>fetch</code></p>
+					<p><code>cool = fetch(:my_cool_variable)</code></p>
+				</section>
+
+				<section>
+					<h2>Common <code style='text-transform:lowercase'>deploy</code> settings</h2>
+					
+					<p>Source control managment via: Git, SVN, Hg</p>
+					<p><code>set :scm, :git</code></p>
+					<p>Specify a branch to deploy</p>
+					<p><code>set :branch, "cool_feature"</code></p>
+					<p>Clean up old releases</p>
+					<p><code>set :keep_releases, 5</code></p>
+				</section>
+
+				<section>
+					<h2>Common <code style='text-transform:lowercase'>deploy</code> settings</h2>
+					<p>Symlink files in <code>current</code> to ones in <code>shared</code></p>
+					<p><code>set :linked_files, %w{config/database.yml}</code></p>
+					<p>Symlink directories in <code>current</code> to ones in <code>shared</code></p>
+					<p><code>set :linked_dirs, %w{bin log tmp/cache}
+</code></p>
+				</section>
+
+				<section>
+					<h2>Extending <code style='text-transform:lowercase'>deploy</code></h2>
+					<p>Specialist gems extend the deploy task.</p>
+					<p><code>require</code> them in your <code>Capfile</code>.</p>
+					<ul>
+						<li class='fragment'>capistrano/bundler</li>
+						<li class='fragment'>capistrano/rails</li>
+						<li class='fragment'>capistrano/rbenv</li>
+						<li class='fragment'>capistrano/rvm</li>
+						<li class='fragment'>capistrano/whenever</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Writing your own tasks</h2>
+					<p>What, Where and When?</p>
+					<ul>
+						<li>What do you want to do?</li>
+						<li>Where do you want to do it? In which directory?</li>
+						<li>When should your task run?</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Defining tasks</h2>
+					<p>Capistrano uses rake, so if you've written a rake task it should be familiar:</p>
+					<pre><code>
+ namespace :party do
+   desc "Task to run when you want to party on down"
+   task :on_down do
+     puts "Let's Partay (locally)"
+   end
+ end
+					</code></pre>
+					<p>Run this task with:</p>
+					<pre><code>
+ bundle exec cap staging party:on_down
+					</code></pre>
+				</section>
+
+				<section>
+					<h2>WHAT: SSHKit</h2>
+					<p>Capture server responses</p>
+					<p><code>hostname = capture :hostname</code></p>
+					<p>Capture user input</p>
+					<p><code>ask :username, "What's your username"</code></p>
+					<p>Upload files</p>
+					<p><code>upload! file_object, "/path/to/file.txt"</code></p>
+					<p>Execute shell commands</p>
+					<p><code>execute :echo, "Hello World!"</code></p>
+				</section>
+
+				<section>
+					<h2>Combining Tasks</h2>
+					<p>Invoke them in another task:</p>
+					<p><code>invoke "namespace:task"</code></p>
+					<p>Using Rake's prequisite syntax:</p>
+					<pre><code>
+ task :big_job => [:tiny_job, :small_job, :minor_job] do
+   info "Finished!"
+ end
+					</code></pre>
+					
+					<pre><code>
+ task :sync_db => [:backup_db, :upload_db, :install_sql, :update_db] do
+   info "Finished!"
+ end
+					</code></pre>
+
+				</section>
+
+				<section>
+					<h2>WHERE: <code style='text-transform:lowercase'>on()</code> &amp; <code style='text-transform:lowercase'>within()</code></h2>
+					<p>Run tasks on specific servers, by role:</p>
+					<pre>
+						<code class='ruby'>
+ on roles(:app) do
+  invoke "cache:clear"
+ end
+					</code></pre>
+
+					<pre>
+						<code class='ruby'>
+ on roles(:app) do
+   within release_path do
+    invoke "cache:clear"
+   end
+ end
+					</code></pre>
+					<p>Helpers</p>
+					<pre><code class='ruby'>
+ release_path # the current release
+ shared_path # the shared dir
+ </code></pre>
+				</section>
+
+				<section>
+					<h2>DEMONSTRATION</h2>
+					<p><code>within(), on(), capture(), execute() etc.</code></p>
+				</section>
+
+				<section>
+					<h2>WHEN: flow</h2>
+					<p>Capistrano uses the concept of deploy and rollback 'flow'</p>
+					
+					<p>Add callbacks <code style='text-transform:lowercase'>before()</code> and <code style='text-transform:lowercase'>after()</code> 'hook' tasks.</p>
+					<p><code>before :starting, :stop_queue</code></p>
+					<p><code>after :finishing, :clear_cache </code></p>
+					<p>http://capistranorb.com/documentation/getting-started/flow/</p>
+				</section>
+
+				<section>
+					<h2>DEMONSTRATION</h2>
+					<p><code>after(), before()</code></p>
+				</section>
+				
+				<section>
+					<h2>THANKS!</h2>
 				</section>
 
 			</div>
